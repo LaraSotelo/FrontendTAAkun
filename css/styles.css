@@ -1,0 +1,348 @@
+/* =============================
+   VARIABLES GLOBALES
+============================= */
+:root {
+  --blanco: #ffffff;
+  --oscuro: #000000;
+  --primario: #FFC107; 
+  --secundario: #000000; 
+  --gris: #757575;
+  --gris-claro: #f5f5f5;
+}
+
+/* =============================
+   CONFIGURACIÓN GLOBAL
+============================= */
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-snap-type: y mandatory;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Audiowide', cursive;
+  background-color: var(--blanco);
+  color: var(--oscuro);
+}
+
+
+
+/* =============================
+   TIPOGRAFÍA
+============================= */
+h1 {
+  font-size: 3.8rem;
+  color: var(--primario);
+}
+
+h2 {
+  font-size: 2.8rem;
+  color: var(--oscuro);
+}
+
+h3 {
+  font-size: 1.8rem;
+  color: var(--oscuro);
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+.titulo span {
+  font-size: 2rem;
+}
+
+/* =============================
+  HEADER
+============================= */
+header {
+  display: flex;            
+  justify-content: center;  
+  align-items: center;      
+  gap: 1rem;                
+  flex-wrap: wrap;          
+  padding: 1rem;            
+}
+
+.logo-header {
+  width: clamp(10rem, 15vw, 35rem);
+  height: clamp(10rem, 15vw, 35rem);
+}
+
+
+.titulo {
+  font-size: clamp(3rem, 10vw, 11rem);
+  text-align: center;
+}
+
+.titulo {
+  display: none;
+}
+
+/* Mostrar título en pantallas grandes */
+@media (min-width: 768px) {
+  .titulo {
+    display: block;
+  }
+}
+
+
+
+
+/* =============================
+   CONTENEDORES Y BOTONES
+============================= */
+.contenedor {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+
+
+/* =============================
+   SOMBRAS Y DECORACIONES
+============================= */
+.sombra {
+  background-color: var(--blanco);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 3rem;
+}
+
+/* =============================
+   UTILIDADES
+============================= */
+.w-sm-100 {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .w-sm-100 {
+    width: auto;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.alinear-derecha {
+  justify-content: flex-end;
+}
+
+/* =============================
+   NAVEGACIÓN
+============================= */
+.nav-bg {
+  background-color: var(--secundario);
+}
+
+.navegacion-principal {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .navegacion-principal {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.navegacion-principal a {
+  display: block;
+  text-align: center;
+  color: var(--blanco);
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1rem;
+}
+
+.navegacion-principal a:hover {
+  background-color: var(--primario);
+  color: var(--oscuro);
+}
+
+/* =============================
+   SECCIÓN HERO
+============================= */
+.hero {
+  background-image: url(../img/arq.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.contenido-hero {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+  color: var(--blanco);
+}
+
+/* =============================
+   SERVICIOS
+============================= */
+@media (min-width: 768px) {
+  .servicios {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 1rem;
+  }
+}
+
+.servicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.servicio h3 {
+  font-weight: normal;
+}
+
+.servicio p {
+  line-height: 2;
+  text-align: center;
+}
+
+.servicio .iconos {
+  height: 15rem;
+  width: 15rem;
+  background-color: var(--primario);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* esto recorta todo lo que sobresale del círculo */
+}
+
+.servicio .iconos img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover; /* recorta y llena el círculo */
+}
+
+
+/* =============================
+   PRODUCTOS
+============================= */
+.productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 2rem;
+}
+
+.card,
+.card * {
+  user-select: none;
+  -webkit-user-select: none; /* Para Safari */
+  -ms-user-select: none;     /* Para IE/Edge */
+  touch-action: manipulation;
+}
+
+.card {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+.card-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.card-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(60%);
+  transition: filter 0.3s ease;
+}
+
+/* No más :hover para móviles, se gestiona con JS */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.overlay h3 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.description {
+  margin-top: 10px;
+  font-size: 1.4rem;
+  color: white;
+  display: none;
+  list-style: disc;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.description li {
+  margin-bottom: 6px;
+}
+
+/* Activación con clase active (JS) */
+.card.active .card-content img {
+  filter: brightness(45%);
+}
+
+.card.active .overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.card.active .description {
+  display: block;
+}
+
+/* =============================
+   FOOTER
+============================= */
+.footer {
+  text-align: center;
+}
